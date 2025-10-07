@@ -44,12 +44,15 @@ python examples/telegram_notify.py
 
 # 测试交易所模块
 python examples/exchange_example.py
+
+# 测试 Lighter 交易所（永续合约，需要先配置 API 密钥）
+python examples/lighter_example.py
 ```
 
 ## 📖 文档
 
 - [日志与消息推送指南](docs/logging_guide.md)
-- [交易所接入指南](docs/exchange_guide.md) (待编写)
+- [Lighter 交易所接入指南](docs/lighter_guide.md)
 - [策略开发指南](docs/strategy_guide.md) (待编写)
 
 ## 🏗️ 项目结构
@@ -74,6 +77,7 @@ basedtradingroot/
 - ✅ 日志系统 - 已完成
 - ✅ Telegram 推送 - 已完成
 - ✅ 交易所基类 - 已完成
+- ✅ Lighter 交易所对接 - 已完成
 - 🚧 策略框架 - 规划中
 - 🚧 风险管理 - 规划中
 - 🚧 回测系统 - 规划中

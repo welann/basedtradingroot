@@ -12,6 +12,13 @@ python-decimal>=1.0
 # Configuration
 python-dotenv>=1.0.0
 
+# WebSocket support
+websockets>=12.0
+
 # Testing (optional)
 pytest>=7.4.0
 pytest-asyncio>=0.21.0
+
+
+# Exchange sdk
+git+https://github.com/elliottech/lighter-python.git

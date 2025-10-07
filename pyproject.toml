@@ -4,4 +4,9 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "lighter-sdk",
+]
+
+[tool.uv.sources]
+lighter-sdk = { git = "https://github.com/elliottech/lighter-python.git" }

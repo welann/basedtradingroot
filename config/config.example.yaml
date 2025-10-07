@@ -45,8 +45,18 @@ telegram:
   rate_limit: 20          # 每分钟最多发送消息数
   batch_interval: 5       # 批量发送间隔（秒）
 
-# 交易所配置 (示例，稍后实现)
+# 交易所配置
 exchanges:
+  # Lighter 交易所配置
+  lighter:
+    enabled: false
+    symbol: "ETH"                          # 交易对 (永续合约，如: ETH, BTC, SOL)
+    api_key_private_key: ""                # API 私钥 (或使用环境变量 API_KEY_PRIVATE_KEY)
+    account_index: 0                       # 账户索引 (或使用环境变量 LIGHTER_ACCOUNT_INDEX)
+    api_key_index: 0                       # API 密钥索引 (或使用环境变量 LIGHTER_API_KEY_INDEX)
+    base_url: "https://mainnet.zklighter.elliot.ai"  # API 地址
+
+  # 其他交易所 (待实现)
   binance:
     enabled: false
     api_key: "YOUR_API_KEY"

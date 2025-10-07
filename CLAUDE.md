@@ -110,6 +110,39 @@ basedtradingroot/
           pass
   ```
 
+#### 5. Lighter 交易所 (src/exchanges/lighter.py)
+
+- **LighterClient**: Lighter 永续合约交易所客户端
+  - 基于 ZK-Rollup 的订单簿 DEX
+  - 永续合约交易 (所有交易对以 USDC 结算)
+  - 交易对格式: 直接使用基础货币符号 (如 `ETH`, `BTC`, `SOL`)
+  - 通过 HTTP API 获取市场配置 (不依赖 SDK 的 OrderApi)
+  - 支持限价单交易
+
+- **使用方式**:
+  ```python
+  from src.exchanges import LighterClient, OrderSide, OrderType
+  from decimal import Decimal
+
+  config = {
+      'symbol': 'ETH',  # ETH 永续合约
+      'api_key_private_key': 'your_private_key',
+  }
+
+  async with LighterClient(config) as client:
+      # 获取价格
+      ticker = await client.get_ticker('ETH')
+
+      # 下限价单
+      result = await client.place_order(
+          symbol='ETH',
+          side=OrderSide.BUY,
+          order_type=OrderType.LIMIT,
+          size=Decimal("0.1"),
+          price=Decimal("2000.00")
+      )
+  ```
+
 ### 待实现的模块
 
 1. **策略模块** (src/strategies/) - 待讨论
@@ -126,6 +159,7 @@ pip install -r requirements.txt
 python examples/basic_logging.py
 python examples/telegram_notify.py
 python examples/exchange_example.py
+python examples/lighter_example.py
 
 # 查看日志
 tail -f logs/all_*.log
@@ -154,3 +188,4 @@ tail -f logs/error/error_*.log
 
 详细文档见 `docs/` 目录：
 - `docs/logging_guide.md` - 日志与消息推送使用指南
+- `docs/lighter_guide.md` - Lighter 交易所接入指南
