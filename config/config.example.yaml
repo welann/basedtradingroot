@@ -1,0 +1,76 @@
+# 量化交易框架配置文件示例
+# 复制此文件为 config.yaml 并填入实际值
+
+# 日志配置
+logging:
+  # 日志根目录
+  log_dir: "logs"
+
+  # 日志级别 (TRACE, DEBUG, INFO, SUCCESS, WARNING, ERROR, CRITICAL)
+  console_level: "INFO"
+  file_level: "DEBUG"
+
+  # 日志轮转配置
+  rotation:
+    # 按日期轮转 (每天一个文件)
+    time: "00:00"
+    # 按大小轮转 (单位: MB)
+    size: 100
+
+  # 模块日志级别 (可选，覆盖默认级别)
+  module_levels:
+    exchange: "DEBUG"
+    strategy: "INFO"
+    risk: "WARNING"
+
+# Telegram Bot 配置
+telegram:
+  # 是否启用 Telegram 推送
+  enabled: false
+
+  # Bot Token (从 @BotFather 获取)
+  bot_token: "YOUR_BOT_TOKEN_HERE"
+
+  # Chat ID (接收消息的用户或群组 ID)
+  chat_id: "YOUR_CHAT_ID_HERE"
+
+  # 推送级别过滤
+  min_level: "WARNING"  # 只推送 WARNING 及以上级别的日志
+
+  # 推送开关
+  notify_on_trade: true   # 是否推送交易通知
+  notify_on_error: true   # 是否推送错误通知
+
+  # 限流保护 (防止消息过多)
+  rate_limit: 20          # 每分钟最多发送消息数
+  batch_interval: 5       # 批量发送间隔（秒）
+
+# 交易所配置 (示例，稍后实现)
+exchanges:
+  binance:
+    enabled: false
+    api_key: "YOUR_API_KEY"
+    api_secret: "YOUR_API_SECRET"
+    testnet: true
+
+  okx:
+    enabled: false
+    api_key: "YOUR_API_KEY"
+    api_secret: "YOUR_API_SECRET"
+    passphrase: "YOUR_PASSPHRASE"
+    testnet: true
+
+# 策略配置 (示例，稍后实现)
+strategy:
+  name: "example_strategy"
+  enabled: false
+  params:
+    symbol: "BTC/USDT"
+    timeframe: "1h"
+
+# 风险管理配置 (示例，稍后实现)
+risk:
+  max_position_size: 1000  # 最大持仓金额 (USDT)
+  max_leverage: 3          # 最大杠杆
+  stop_loss_pct: 0.02      # 止损百分比 (2%)
+  take_profit_pct: 0.05    # 止盈百分比 (5%)
