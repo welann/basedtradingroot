@@ -41,6 +41,9 @@ python examples/basic_logging.py
 
 # 测试 Telegram 推送 (需要先配置 Bot Token)
 python examples/telegram_notify.py
+
+# 测试交易所模块
+python examples/exchange_example.py
 ```
 
 ## 📖 文档
@@ -70,7 +73,7 @@ basedtradingroot/
 
 - ✅ 日志系统 - 已完成
 - ✅ Telegram 推送 - 已完成
-- 🚧 交易所基类 - 设计中
+- ✅ 交易所基类 - 已完成
 - 🚧 策略框架 - 规划中
 - 🚧 风险管理 - 规划中
 - 🚧 回测系统 - 规划中

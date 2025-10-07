@@ -113,11 +113,11 @@
 - ~~`get_order_history()` - 获取历史订单~~
 
 ### 1.3 实现任务
-- [ ] 创建项目目录结构
-- [ ] 实现所有数据类和枚举类型
-- [ ] 实现 BaseExchangeClient 抽象基类
+- [x] 创建项目目录结构
+- [x] 实现所有数据类和枚举类型 (src/exchanges/types.py)
+- [x] 实现 BaseExchangeClient 抽象基类 (src/exchanges/base.py)
 - [ ] 编写单元测试
-- [ ] 编写使用文档和示例
+- [x] 编写使用文档和示例 (examples/exchange_example.py)
 
 ---
 

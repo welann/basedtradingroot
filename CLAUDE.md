@@ -87,12 +87,34 @@ basedtradingroot/
   - 单例模式
   - 自动验证配置完整性
 
+#### 4. 交易所基类 (src/exchanges/)
+
+- **BaseExchangeClient**: 抽象基类，定义统一接口
+  - 订单操作: place_order, cancel_order, get_order_info
+  - 持仓查询: get_position, get_all_positions
+  - 市场数据: get_ticker, get_symbols, get_symbol_info
+  - 工具方法: round_to_tick, round_to_size, validate_order
+
+- **数据类型** (src/exchanges/types.py):
+  - 枚举: OrderType, OrderSide, OrderStatus, PositionSide
+  - 数据类: OrderResult, OrderInfo, Position, Ticker, SymbolInfo, Trade
+
+- **使用方式**:
+  ```python
+  from src.exchanges import BaseExchangeClient, OrderSide, OrderType
+
+  # 继承基类实现自己的交易所客户端
+  class MyExchange(BaseExchangeClient):
+      async def place_order(self, ...):
+          # 实现下单逻辑
+          pass
+  ```
+
 ### 待实现的模块
 
-1. **交易所基类** (src/exchanges/base.py) - 见 todos.md
-2. **策略模块** (src/strategies/) - 待讨论
-3. **风险管理** (src/risk/) - 待讨论
-4. **回测系统** - 待讨论
+1. **策略模块** (src/strategies/) - 待讨论
+2. **风险管理** (src/risk/) - 待讨论
+3. **回测系统** - 待讨论
 
 ## Common Commands
 
@@ -103,6 +125,7 @@ pip install -r requirements.txt
 # 运行示例
 python examples/basic_logging.py
 python examples/telegram_notify.py
+python examples/exchange_example.py
 
 # 查看日志
 tail -f logs/all_*.log
